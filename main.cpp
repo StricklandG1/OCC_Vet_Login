@@ -15,6 +15,7 @@ std::wstring idTextStr;
 std::wstring* userArray; //dynamic array for textout
 
 int numLines;
+bool open = false;
 
 // enums used to identify buttons
 enum {ID_LOGINBTN, ID_REGISTER, ID_REGCANCEL, 
@@ -1065,41 +1066,46 @@ LRESULT CALLBACK AdminWindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPa
 								j++;
 							}
 						}
-						static const wchar_t VIEW_WINDOW[] = L"ViewWindow";
-						ShowWindow(mainWindow, SW_HIDE);
-
-						WNDCLASSEX viewWin = {};
-
-						viewWin.cbSize = sizeof(WNDCLASSEX);
-						viewWin.lpfnWndProc = ViewTextWindowProc;
-						viewWin.lpszClassName = VIEW_WINDOW;
-
-						RegisterClassEx(&viewWin);
-
-						viewTextWin = CreateWindowEx(
-							0,
-							VIEW_WINDOW,
-							L"View club roster/attendance",
-							WS_OVERLAPPEDWINDOW | WS_VSCROLL | WS_HSCROLL,
-							CW_USEDEFAULT,
-							CW_USEDEFAULT,
-							500,
-							300,
-							NULL,
-							NULL,
-							NULL,
-							NULL
-						);
-						ShowWindow(viewTextWin, SW_SHOW);
-
-						MSG viewMsg = {};
-						while (GetMessage(&viewMsg, NULL, 0, 0))
+						if (!open)
 						{
-							if (IsDialogMessage(viewTextWin, &viewMsg) == 0)
+							open = true;
+							static const wchar_t VIEW_WINDOW[] = L"ViewWindow";
+							ShowWindow(mainWindow, SW_HIDE);
+
+							WNDCLASSEX viewWin = {};
+
+							viewWin.cbSize = sizeof(WNDCLASSEX);
+							viewWin.lpfnWndProc = ViewTextWindowProc;
+							viewWin.lpszClassName = VIEW_WINDOW;
+
+							RegisterClassEx(&viewWin);
+
+							viewTextWin = CreateWindowEx(
+								0,
+								VIEW_WINDOW,
+								L"View club roster/attendance",
+								WS_OVERLAPPEDWINDOW | WS_VSCROLL | WS_HSCROLL,
+								CW_USEDEFAULT,
+								CW_USEDEFAULT,
+								500,
+								300,
+								NULL,
+								NULL,
+								NULL,
+								NULL
+							);
+							ShowWindow(viewTextWin, SW_SHOW);
+							open = true;
+							MSG viewMsg = {};
+							while (GetMessage(&viewMsg, NULL, 0, 0))
 							{
-								TranslateMessage(&viewMsg);
-								DispatchMessage(&viewMsg);
+								if (IsDialogMessage(viewTextWin, &viewMsg) == 0)
+								{
+									TranslateMessage(&viewMsg);
+									DispatchMessage(&viewMsg);
+								}
 							}
+							open = false;
 						}
 					}
 					else if (IsDlgButtonChecked(hwnd, ID_BACKUP))

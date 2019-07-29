@@ -1,4 +1,3 @@
 ﻿  main.cpp
-d:\cs_projects\occvetclublogin_sqlite\occvetclublogin\functions.h(31): warning C4018: '<': signed/unsigned mismatch
-  sqlite3.c
-  OCCVetClubLogin.vcxproj -> D:\CS_Projects\OCCVetClubLogin_SQLite\Debug\OCCVetClubLogin.exe
+c:\cs_projects\occvetclublogin_sqlite\occvetclublogin\functions.h(31): warning C4018: '<': signed/unsigned mismatch
+  OCCVetClubLogin.vcxproj -> C:\CS_Projects\OCCVetClubLogin_SQLite\Debug\OCCVetClubLogin.exe

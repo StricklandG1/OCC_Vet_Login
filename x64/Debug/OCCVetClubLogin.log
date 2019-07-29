@@ -1,0 +1,11 @@
+﻿  main.cpp
+c:\cs_projects\occvetclublogin_sqlite\occvetclublogin\main.cpp(173): error C2065: 'GWL_HINSTANCE': undeclared identifier
+c:\cs_projects\occvetclublogin_sqlite\occvetclublogin\main.cpp(162): error C2660: 'CreateWindowExW': function does not take 11 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\winuser.h(4329): note: see declaration of 'CreateWindowExW'
+c:\cs_projects\occvetclublogin_sqlite\occvetclublogin\main.cpp(523): error C2065: 'GWL_HINSTANCE': undeclared identifier
+c:\cs_projects\occvetclublogin_sqlite\occvetclublogin\main.cpp(512): error C2660: 'CreateWindowExW': function does not take 11 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\winuser.h(4329): note: see declaration of 'CreateWindowExW'
+c:\cs_projects\occvetclublogin_sqlite\occvetclublogin\main.cpp(539): error C2065: 'GWL_HINSTANCE': undeclared identifier
+c:\cs_projects\occvetclublogin_sqlite\occvetclublogin\main.cpp(528): error C2660: 'CreateWindowExW': function does not take 11 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\winuser.h(4329): note: see declaration of 'CreateWindowExW'
+c:\cs_projects\occvetclublogin_sqlite\occvetclublogin\main.cpp(889): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
